@@ -19,6 +19,7 @@
     <project.encoding>UTF-8</project.encoding>
     <apollo.version>0.10.2</apollo.version>
     <platform.bom.version>Cairo-SR2</platform.bom.version>
+    <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
     <dubbo.version>2.6.2</dubbo.version>
     <dubbo.spring.boot.starter.version>0.2.0</dubbo.spring.boot.starter.version>
     <zookeeper.version>3.4.12</zookeeper.version>
@@ -28,10 +29,19 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- platform bom -->
       <dependency>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
         <version>${platform.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- spring cloud -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
