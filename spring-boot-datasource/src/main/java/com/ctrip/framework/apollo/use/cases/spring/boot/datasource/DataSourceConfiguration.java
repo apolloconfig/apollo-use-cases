@@ -22,9 +22,9 @@ import java.util.Set;
 @EnableConfigurationProperties(DataSourceProperties.class)
 public class DataSourceConfiguration {
 
-    Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(DataSourceConfiguration.class);
 
-    private final static String DATASOURCE_TAG = "db";
+    private static final String DATASOURCE_TAG = "db";
 
     @Autowired
     private ApplicationContext context;

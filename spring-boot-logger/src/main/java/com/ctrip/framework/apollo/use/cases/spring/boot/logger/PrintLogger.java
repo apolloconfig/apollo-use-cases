@@ -13,8 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class PrintLogger {
-
-    Logger logger = LoggerFactory.getLogger(getClass());
+    private static Logger logger = LoggerFactory.getLogger(PrintLogger.class);
 
     @PostConstruct
     public void printLogger() throws Exception{

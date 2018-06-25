@@ -2,9 +2,13 @@
 
 展示Apollo配置中心的各种使用场景和示例代码，目前包含了以下示例项目：
 
+* [spring-boot-logger](spring-boot-logger)：演示[Spring Boot Logging](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html)如何通过Apollo配置中心实现动态调整Logging Level
+* [spring-cloud-zuul](spring-cloud-zuul)：演示[Spring Cloud Zuul](https://cloud.spring.io/spring-cloud-netflix/single/spring-cloud-netflix.html#netflix-zuul-reverse-proxy)如何通过Apollo配置中心实现动态路由
+* [spring-boot-encrypt](spring-boot-encrypt)：演示如何结合[jasypt-spring-boot](https://github.com/ulisesbocchio/jasypt-spring-boot)实现Apollo中存储加密配置
+* [spring-boot-datasource](spring-boot-datasource)：演示[Spring Boot Datasource](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html)如何通过Apollo配置中心实现动态数据切换数据源
 * [dubbo](dubbo): 演示[Dubbo](https://github.com/apache/incubator-dubbo)如何通过Apollo配置中心实现中心化配置
 * [spring-boot-dubbo](spring-boot-dubbo): 演示[Dubbo Spring Boot Starter](https://github.com/apache/incubator-dubbo-spring-boot-project)如何通过Apollo配置中心实现中心化配置
-* [spring-cloud-zuul](spring-cloud-zuul)：演示[Spring Cloud Zuul](https://cloud.spring.io/spring-cloud-netflix/single/spring-cloud-netflix.html#netflix-zuul-reverse-proxy)如何通过Apollo配置中心实现动态路由
+
 
 欢迎大家把日常工作中的更多配置使用案例分享出来，提交Pull Request即可！
 
