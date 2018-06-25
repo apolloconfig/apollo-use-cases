@@ -5,4 +5,6 @@ spring.datasource.url = jdbc:mysql://127.0.0.1:3306/test1?autoReconnect=true&amp
 spring.datasource.username = root         
 spring.datasource.password = sasa
 
-启动程序后会打印kl ，切换test2的数据库后就会打印ckl
+启动程序后会打印kl ，切换test2的数据库后就会打印ckl     
+
+详情见博文：http://www.kailing.pub/article/index/arcid/198.html
