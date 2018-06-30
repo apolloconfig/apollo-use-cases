@@ -13,7 +13,7 @@
     <module>spring-boot-dubbo</module>
     <module>spring-cloud-zuul</module>
     <module>spring-boot-logger</module>
-    <module>spring-boot-datasource</module>
+    <module>dynamic-datasource</module>
     <module>spring-boot-encrypt</module>
   </modules>
 
