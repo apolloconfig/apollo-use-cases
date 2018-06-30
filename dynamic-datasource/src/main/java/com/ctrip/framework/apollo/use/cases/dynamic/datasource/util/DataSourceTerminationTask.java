@@ -55,6 +55,10 @@ public class DataSourceTerminationTask implements Runnable {
     }
   }
 
+  /**
+   * @see <a href="https://github.com/brettwooldridge/HikariCP/issues/742">Support graceful shutdown of connection
+   * pool</a>
+   */
   private boolean terminateHikariDataSource(HikariDataSource dataSource) {
     HikariPoolMXBean poolMXBean = dataSource.getHikariPoolMXBean();
 
@@ -67,7 +71,7 @@ public class DataSourceTerminationTask implements Runnable {
       return false;
     }
 
-    if (poolMXBean.getActiveConnections() > 0 && retryTimes >= MAX_RETRY_TIMES) {
+    if (poolMXBean.getActiveConnections() > 0) {
       logger.warn("Retry times({}) >= {}, force closing data source {}, with {} active connections!", retryTimes,
           MAX_RETRY_TIMES, dataSource, poolMXBean.getActiveConnections());
     }
