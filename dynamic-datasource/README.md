@@ -1,6 +1,6 @@
 # Purpose
 
-演示[DataSource](https://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html)如何通过Apollo配置中心实现动态数据切换数据源
+演示[Spring Boot默认的HikariCP DataSource](https://github.com/brettwooldridge/HikariCP)如何通过Apollo配置中心实现动态切换数据源（其它类型的DataSource也是类似的，可以依样画葫芦）
 
 # Instructions
 
