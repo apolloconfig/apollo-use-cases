@@ -40,16 +40,20 @@ public class DataSourceRefresher {
     }
 
     if (dataSourceConfigChanged) {
-      try {
-        logger.info("Refreshing data source");
-        refreshScope.refresh(RefreshableDataSourceConfiguration.DATA_SOURCE_PROPERTIES_BEAN);
-        DataSource newDataSource = dataSourceManager.createAndTestDataSource();
-        DataSource oldDataSource = dynamicDataSource.setDataSource(newDataSource);
-        asyncTerminate(oldDataSource);
-        logger.info("Finished refreshing data source");
-      } catch (Throwable ex) {
-        logger.error("Refreshing data source failed", ex);
-      }
+      refreshDataSource();
+    }
+  }
+
+  private synchronized void refreshDataSource() {
+    try {
+      logger.info("Refreshing data source");
+      refreshScope.refresh(RefreshableDataSourceConfiguration.DATA_SOURCE_PROPERTIES_BEAN);
+      DataSource newDataSource = dataSourceManager.createAndTestDataSource();
+      DataSource oldDataSource = dynamicDataSource.setDataSource(newDataSource);
+      asyncTerminate(oldDataSource);
+      logger.info("Finished refreshing data source");
+    } catch (Throwable ex) {
+      logger.error("Refreshing data source failed", ex);
     }
   }
 
