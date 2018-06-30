@@ -2,6 +2,7 @@ package com.ctrip.framework.apollo.use.cases.spring.boot.encrypt;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,7 +14,7 @@ import javax.annotation.PostConstruct;
  */
 @SpringBootApplication
 @EnableApolloConfig
-public class Application {
+public class Application implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -25,10 +26,9 @@ public class Application {
     @Value("${test.input1}")
     private String input1;
 
-    @PostConstruct
-    private void pringInput() {
+    @Override
+    public void run(String... args) throws Exception {
         System.err.println("test.input 值 ENC(Ore69lUopDHL5R8Bw/G3bQ==) 解密后:" + input);
         System.err.println("test.input1 不需要解密:" + input1);
     }
-
 }
