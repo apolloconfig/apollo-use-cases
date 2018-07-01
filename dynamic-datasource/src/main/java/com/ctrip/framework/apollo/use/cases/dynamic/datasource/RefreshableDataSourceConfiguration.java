@@ -11,15 +11,6 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class RefreshableDataSourceConfiguration {
-  public static final String DATA_SOURCE_PROPERTIES_BEAN = "DATA_SOURCE_PROPERTIES_BEAN";
-
-  @Primary
-  @Bean(DATA_SOURCE_PROPERTIES_BEAN)
-  @RefreshScope
-  @ConfigurationProperties(prefix = "spring.datasource.hikari")
-  public DataSourceProperties dataSourceProperties() {
-    return new DataSourceProperties();
-  }
 
   @Bean
   public DynamicDataSource dataSource(DataSourceManager dataSourceManager) {

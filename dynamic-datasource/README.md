@@ -10,9 +10,10 @@
 2. 在默认的`application`下做如下配置（按照实际的数据库连接信息填写）：
 
     ```properties
-    spring.datasource.hikari.url = jdbc:mysql://127.0.0.1:3306/test1?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8
-    spring.datasource.hikari.username = root
-    spring.datasource.hikari.password = sasa
+    spring.datasource.url = jdbc:mysql://127.0.0.1:3306/test1?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+    spring.datasource.username = xxx-user
+    spring.datasource.password = xxx-password
+    # hikari specific settings
     spring.datasource.hikari.maximumPoolSize = 1
     ```
 3. 运行`com.ctrip.framework.apollo.use.cases.dynamic.datasource.Application`启动Demo
