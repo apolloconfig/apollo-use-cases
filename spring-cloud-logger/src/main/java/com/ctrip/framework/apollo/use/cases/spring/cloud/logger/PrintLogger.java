@@ -1,12 +1,11 @@
-package com.ctrip.framework.apollo.use.cases.spring.boot.logger;
+package com.ctrip.framework.apollo.use.cases.spring.cloud.logger;
 
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by kl on 2018/6/25.

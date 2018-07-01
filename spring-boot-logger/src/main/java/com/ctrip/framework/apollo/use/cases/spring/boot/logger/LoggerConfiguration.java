@@ -28,7 +28,7 @@ public class LoggerConfiguration {
   private Config config;
 
   @ApolloConfigChangeListener
-  private void configChangeListter(ConfigChangeEvent changeEvent) {
+  private void onChange(ConfigChangeEvent changeEvent) {
     refreshLoggingLevels();
   }
 

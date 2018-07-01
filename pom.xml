@@ -15,6 +15,7 @@
     <module>spring-boot-logger</module>
     <module>dynamic-datasource</module>
     <module>spring-boot-encrypt</module>
+    <module>spring-cloud-logger</module>
   </modules>
 
   <properties>
