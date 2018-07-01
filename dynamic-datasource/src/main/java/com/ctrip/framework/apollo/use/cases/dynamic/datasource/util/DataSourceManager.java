@@ -1,6 +1,7 @@
 package com.ctrip.framework.apollo.use.cases.dynamic.datasource.util;
 
 import com.zaxxer.hikari.HikariDataSource;
+import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
@@ -22,6 +23,10 @@ public class DataSourceManager {
   @Autowired
   private DataSourceProperties dataSourceProperties;
 
+  /**
+   * create a hikari data source
+   * @see org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.Hikari#dataSource
+   */
   public HikariDataSource createDataSource() {
     HikariDataSource dataSource = dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
     if (StringUtils.hasText(dataSourceProperties.getName())) {
@@ -46,6 +51,9 @@ public class DataSourceManager {
   }
 
   private void testConnection(DataSource dataSource) throws SQLException {
-    dataSource.getConnection().close();
+    //borrow a connection
+    Connection connection = dataSource.getConnection();
+    //return the connection
+    connection.close();
   }
 }

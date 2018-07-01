@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * Created by kl on 2018/6/25. Content :动态数据源实例
  */
 @EnableApolloConfig
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class Application implements CommandLineRunner {
 
   public static void main(String[] args) {

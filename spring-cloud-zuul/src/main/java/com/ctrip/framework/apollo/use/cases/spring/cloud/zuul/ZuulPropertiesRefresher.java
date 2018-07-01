@@ -42,7 +42,7 @@ public class ZuulPropertiesRefresher implements ApplicationContextAware {
     logger.info("Refreshing zuul properties!");
 
     /**
-     * rebind configuration beans
+     * rebind configuration beans, e.g. ZuulProperties
      * @see org.springframework.cloud.context.properties.ConfigurationPropertiesRebinder#onApplicationEvent
      */
     this.applicationContext.publishEvent(new EnvironmentChangeEvent(changeEvent.changedKeys()));
