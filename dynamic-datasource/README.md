@@ -18,6 +18,6 @@
     ```
 3. 运行`com.ctrip.framework.apollo.use.cases.dynamic.datasource.Application`启动Demo
 4. 程序启动后会持续打印kl
-5. 在Apollo配置中心修改配置，把`spring.datasource.hikari.url`的值切换到`test2`并发布配置
+5. 在Apollo配置中心修改配置，把`spring.datasource.url`的值切换到`test2`并发布配置
 6. 程序会持续打印ckl，说明动态切换数据源生效了
 7. 更多信息可以参见博文：http://www.kailing.pub/article/index/arcid/198.html
