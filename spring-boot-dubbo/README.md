@@ -11,10 +11,10 @@
 	```properties
 	# Base packages to scan Dubbo Components (e.g @Service , @Reference)
 	dubbo.scan.basePackages = com.ctrip.framework.apollo.use.cases.spring.boot.starter.dubbo.provider
-		
+
 	## ApplicationConfig Bean
 	dubbo.application.name = spring-boot-dubbo-provider
-		
+
 	## RegistryConfig Bean
 	dubbo.registry.protocol = zookeeper
 	dubbo.registry.address = 127.0.0.1:2181
