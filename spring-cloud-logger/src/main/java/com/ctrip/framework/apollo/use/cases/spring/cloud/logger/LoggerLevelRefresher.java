@@ -45,7 +45,7 @@ public class LoggerLevelRefresher implements ApplicationContextAware {
       System.out.println("Refreshing logging levels");
 
       /**
-       * refresh logging levles
+       * refresh logging levels
        * @see org.springframework.cloud.logging.LoggingRebinder#onApplicationEvent
        */
       this.applicationContext.publishEvent(new EnvironmentChangeEvent(changedKeys));
