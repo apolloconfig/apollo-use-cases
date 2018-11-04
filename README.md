@@ -9,7 +9,7 @@
 * [dynamic-datasource](dynamic-datasource)：演示[Spring Boot默认的HikariCP DataSource](https://github.com/brettwooldridge/HikariCP)如何通过Apollo配置中心实现动态切换数据源（其它类型的DataSource也是类似的，可以依样画葫芦）
 * [dubbo](dubbo): 演示[Dubbo](https://github.com/apache/incubator-dubbo)如何通过Apollo配置中心实现中心化配置
 * [spring-boot-dubbo](spring-boot-dubbo): 演示[Dubbo Spring Boot Starter](https://github.com/apache/incubator-dubbo-spring-boot-project)如何通过Apollo配置中心实现中心化配置
-
+* [netflix-archaius](netflix-archaius): 演示[Netflix Archaius](https://github.com/Netflix/archaius)如何使用Apollo配置中心作为其服务端使用
 
 欢迎大家把日常工作中的更多配置使用案例分享出来，提交Pull Request即可！
 
