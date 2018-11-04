@@ -16,6 +16,7 @@
     <module>dynamic-datasource</module>
     <module>spring-boot-encrypt</module>
     <module>spring-cloud-logger</module>
+    <module>netflix-archaius</module>
   </modules>
 
   <properties>
@@ -29,6 +30,7 @@
     <zookeeper.version>3.4.12</zookeeper.version>
     <zkclient.version>0.10</zkclient.version>
     <curator.version>2.12.0</curator.version>
+    <archaius.version>0.7.6</archaius.version>
   </properties>
 
   <dependencyManagement>
@@ -96,6 +98,21 @@
         <groupId>org.apache.curator</groupId>
         <artifactId>curator-test</artifactId>
         <version>${curator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.netflix.archaius</groupId>
+        <artifactId>archaius-core</artifactId>
+        <version>${archaius.version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
     </dependencies>
   </dependencyManagement>
