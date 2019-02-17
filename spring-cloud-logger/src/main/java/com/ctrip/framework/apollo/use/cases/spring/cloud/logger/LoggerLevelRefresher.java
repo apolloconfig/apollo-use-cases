@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LoggerLevelRefresher implements ApplicationContextAware {
+
   private ApplicationContext applicationContext;
 
   @ApolloConfig
@@ -27,31 +28,21 @@ public class LoggerLevelRefresher implements ApplicationContextAware {
     refreshLoggingLevels(config.getPropertyNames());
   }
 
-  @ApolloConfigChangeListener
+  @ApolloConfigChangeListener(interestedKeyPrefixes = {"logging.level."})
   private void onChange(ConfigChangeEvent changeEvent) {
     refreshLoggingLevels(changeEvent.changedKeys());
   }
 
   private void refreshLoggingLevels(Set<String> changedKeys) {
-    boolean loggingLevelChanged = false;
-    for (String changedKey : changedKeys) {
-      if (changedKey.startsWith("logging.level.")) {
-        loggingLevelChanged = true;
-        break;
-      }
-    }
+    System.out.println("Refreshing logging levels");
 
-    if (loggingLevelChanged) {
-      System.out.println("Refreshing logging levels");
+    /**
+     * refresh logging levels
+     * @see org.springframework.cloud.logging.LoggingRebinder#onApplicationEvent
+     */
+    this.applicationContext.publishEvent(new EnvironmentChangeEvent(changedKeys));
 
-      /**
-       * refresh logging levels
-       * @see org.springframework.cloud.logging.LoggingRebinder#onApplicationEvent
-       */
-      this.applicationContext.publishEvent(new EnvironmentChangeEvent(changedKeys));
-
-      System.out.println("Logging levels refreshed");
-    }
+    System.out.println("Logging levels refreshed");
   }
 
   @Override

@@ -23,19 +23,9 @@ public class ZuulPropertiesRefresher implements ApplicationContextAware {
   @Autowired
   private RouteLocator routeLocator;
 
-  @ApolloConfigChangeListener
+  @ApolloConfigChangeListener(interestedKeyPrefixes = "zuul.")
   public void onChange(ConfigChangeEvent changeEvent) {
-    boolean zuulPropertiesChanged = false;
-    for (String changedKey : changeEvent.changedKeys()) {
-      if (changedKey.startsWith("zuul.")) {
-        zuulPropertiesChanged = true;
-        break;
-      }
-    }
-
-    if (zuulPropertiesChanged) {
-      refreshZuulProperties(changeEvent);
-    }
+    refreshZuulProperties(changeEvent);
   }
 
   private void refreshZuulProperties(ConfigChangeEvent changeEvent) {

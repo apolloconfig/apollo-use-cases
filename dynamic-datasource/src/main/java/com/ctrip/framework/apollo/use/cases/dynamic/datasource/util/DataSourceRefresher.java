@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataSourceRefresher implements ApplicationContextAware {
+
   private static final Logger logger = LoggerFactory.getLogger(DataSourceRefresher.class);
 
   private ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
@@ -32,19 +33,9 @@ public class DataSourceRefresher implements ApplicationContextAware {
   @Autowired
   private ApplicationContext applicationContext;
 
-  @ApolloConfigChangeListener
+  @ApolloConfigChangeListener(interestedKeyPrefixes = "spring.datasource.")
   public void onChange(ConfigChangeEvent changeEvent) {
-    boolean dataSourceConfigChanged = false;
-    for (String changedKey : changeEvent.changedKeys()) {
-      if (changedKey.startsWith("spring.datasource.")) {
-        dataSourceConfigChanged = true;
-        break;
-      }
-    }
-
-    if (dataSourceConfigChanged) {
-      refreshDataSource(changeEvent.changedKeys());
-    }
+    refreshDataSource(changeEvent.changedKeys());
   }
 
   private synchronized void refreshDataSource(Set<String> changedKeys) {
