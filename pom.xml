@@ -17,6 +17,7 @@
     <module>spring-boot-encrypt</module>
     <module>spring-cloud-logger</module>
     <module>netflix-archaius</module>
+    <module>sentinel</module>
   </modules>
 
   <properties>

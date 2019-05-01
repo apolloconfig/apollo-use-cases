@@ -10,6 +10,7 @@
 * [dubbo](dubbo): 演示[Dubbo](https://github.com/apache/incubator-dubbo)如何通过Apollo配置中心实现中心化配置
 * [spring-boot-dubbo](spring-boot-dubbo): 演示[Dubbo Spring Boot Starter](https://github.com/apache/incubator-dubbo-spring-boot-project)如何通过Apollo配置中心实现中心化配置
 * [netflix-archaius](netflix-archaius): 演示[Netflix Archaius](https://github.com/Netflix/archaius)如何使用Apollo配置中心作为其服务端使用
+* [sentinel](sentinel): 演示[Sentinel](https://github.com/alibaba/Sentinel)如何通过Apollo配置中心实现中心化流控规则配置
 
 欢迎大家把日常工作中的更多配置使用案例分享出来，提交Pull Request即可！
 
