@@ -18,6 +18,7 @@
     <module>spring-cloud-logger</module>
     <module>netflix-archaius</module>
     <module>sentinel</module>
+    <module>properties-keeper</module>
   </modules>
 
   <properties>
