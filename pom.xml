@@ -19,6 +19,7 @@
     <module>netflix-archaius</module>
     <module>sentinel</module>
     <module>properties-keeper</module>
+    <module>spring-boot-agent</module>
   </modules>
 
   <properties>
