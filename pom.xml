@@ -20,6 +20,7 @@
     <module>sentinel</module>
     <module>properties-keeper</module>
     <module>spring-boot-agent</module>
+    <module>spring-cloud-gateway</module>
   </modules>
 
   <properties>
