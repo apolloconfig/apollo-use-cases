@@ -17,7 +17,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
 
 /**
  * @author ksewen
@@ -89,13 +90,13 @@ public class GatewayPropertiesRefresher implements ApplicationContextAware,Appli
      */
     private synchronized void preDestroyGatewayProperties(ConfigChangeEvent changeEvent) {
         logger.info("Pre Destroy GatewayProperties!");
-        final boolean needClearRoutes = this.checkNeedClear(changeEvent, ID_PATTERN);
+        final boolean needClearRoutes = this.checkNeedClear(changeEvent, ID_PATTERN, this.gatewayProperties.getRoutes().size());
         if (needClearRoutes) {
-            this.gatewayProperties.getRoutes().clear();
+            this.gatewayProperties.setRoutes(new ArrayList<>());
         }
-        final boolean needClearDefaultFilters = this.checkNeedClear(changeEvent, DEFAULT_FILTER_PATTERN);
+        final boolean needClearDefaultFilters = this.checkNeedClear(changeEvent, DEFAULT_FILTER_PATTERN, this.gatewayProperties.getDefaultFilters().size());
         if (needClearDefaultFilters) {
-            this.gatewayProperties.getDefaultFilters().clear();
+            this.gatewayProperties.setRoutes(new ArrayList<>());
         }
         logger.info("Pre Destroy GatewayProperties finished!");
     }
@@ -111,17 +112,18 @@ public class GatewayPropertiesRefresher implements ApplicationContextAware,Appli
      *
      * @param changeEvent
      * @param pattern
+     * @param existSize
      * @return boolean
      * @author ksewen
      * @date 2019/5/23 2:18 PM
      */
-    private boolean checkNeedClear(ConfigChangeEvent changeEvent, String pattern) {
+    private boolean checkNeedClear(ConfigChangeEvent changeEvent, String pattern, int existSize) {
 
         return changeEvent.changedKeys().stream().filter(key -> key.matches(pattern))
                 .filter(key -> {
                     ConfigChange change = changeEvent.getChange(key);
                     return PropertyChangeType.DELETED.equals(change.getChangeType());
-                }).count() > 0;
+                }).count() == existSize;
     }
 
 }
