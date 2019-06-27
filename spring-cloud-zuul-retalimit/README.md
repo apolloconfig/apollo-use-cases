@@ -9,7 +9,7 @@
 
     ```properties
     zuul.routes.test.path = /limit/**
-    zuul.routes.test.url = http://localhost:9090/index
+    zuul.routes.test.url = forward:/test
     zuul.ratelimit.key-prefix = your-prefix
     zuul.ratelimit.enabled = true
     zuul.ratelimit.repository = REDIS
@@ -21,7 +21,13 @@
     zuul.ratelimit.default-policy-list[0].type[0] = user
     zuul.ratelimit.default-policy-list[0].type[1] = origin
     zuul.ratelimit.default-policy-list[0].type[2] = url
-    zuul.ratelimit.default-policy-list[0].type[3] = httpmethod
+    # 通过实例配置覆盖默认配置，注意这里的`test`需要和网关对应路由的`test`关联
+    # zuul.ratelimit.policy-list.test[0].limit = 1
+    # zuul.ratelimit.policy-list.test[0].quota = 1000
+    # zuul.ratelimit.policy-list.test[0].refresh-interval = 5
+    # zuul.ratelimit.policy-list.test[0].type[0] = user
+    # zuul.ratelimit.policy-list.test[0].type[1] = origin
+    # zuul.ratelimit.policy-list.test[0].type[2] = url
     ```
 3. 运行`com.ctrip.framework.apollo.use.cases.spring.cloud.zuul.Application`启动Demo
 4. 手动打开`http://localhost:9090/limit`，页面显示`429`访问过载：

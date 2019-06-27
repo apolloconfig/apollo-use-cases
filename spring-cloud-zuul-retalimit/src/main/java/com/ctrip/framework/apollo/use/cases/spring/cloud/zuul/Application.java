@@ -33,7 +33,7 @@ public class Application {
     app.run(args);
   }
 
-  @GetMapping("/index")
+  @GetMapping("/test/index")
   public String index() {
     return String.format("index %s",  port);
   }
