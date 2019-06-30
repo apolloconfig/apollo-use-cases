@@ -39,6 +39,12 @@
       <version>RELEASE</version>
     </dependency>
 
+<!--    如需要可以配置actuator端点，进行手动刷新-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--    </dependency>-->
+
     <dependency>
       <groupId>com.marcosbarbero.cloud</groupId>
       <artifactId>spring-cloud-zuul-ratelimit</artifactId>

@@ -32,5 +32,5 @@
 3. 运行`com.ctrip.framework.apollo.use.cases.spring.cloud.zuul.Application`启动Demo
 4. 手动打开`http://localhost:9090/limit`，页面显示`429`访问过载：
 ![](http://ww1.sinaimg.cn/large/006tNc79gy1g4fmqgu5rvj311u0eugm7.jpg)
-5. 在Apollo配置中心修改配置，把`zuul.ratelimit.default-policy-list[0].limit`的值改为`1`并发布配置，再次访问，即可在5秒时间窗口内访问到1次`http://localhost:9090/index`端点，说明动态路由生效了
+5. 在Apollo配置中心修改配置，把`zuul.ratelimit.default-policy-list[0].limit`的值改为`1`并发布配置，再次访问，即可在5秒时间窗口内访问到1次`http://localhost:9090/limit`端点，说明动态路由生效了
   * 更详细的限流配置，请看[marcosbarbero/spring-cloud-zuul-ratelimit](https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit)或者这里有一篇快速入门[Spring Cloud 入门教程9、服务限流/API限流（Zuul+RateLimiter）](https://ken.io/note/spring-cloud-zuul-ratelimiter-quickstart)
