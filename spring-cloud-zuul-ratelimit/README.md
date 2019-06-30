@@ -4,7 +4,7 @@
 
 # Instructions
 0. 启动本机redis或者手动修改对应配置
-1. 在Apollo配置中心创建AppId为`spring-cloud-zuul-retalimit`的项目，也可以沿用`spring-cloud-zuul`的项目（注意配置文件中`app.id`配置）
+1. 在Apollo配置中心创建AppId为`spring-cloud-zuul-ratelimit`的项目，也可以沿用`spring-cloud-zuul`的项目（注意配置文件中`app.id`配置）
 2. 在默认的`application`下做如下配置（可以通过文本模式直接复制、粘贴下面的内容）：
 
     ```properties
