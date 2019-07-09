@@ -9,8 +9,7 @@
 
     ```properties
     zuul.routes.test.path = /limit/**
-    zuul.routes.test.url = forward:/test
-    zuul.ratelimit.key-prefix = your-prefix
+    zuul.routes.test.url = forward:/index
     zuul.ratelimit.enabled = true
     zuul.ratelimit.repository = REDIS
     zuul.ratelimit.behind-proxy = true

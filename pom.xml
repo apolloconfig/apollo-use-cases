@@ -36,7 +36,7 @@
     <zkclient.version>0.10</zkclient.version>
     <curator.version>2.12.0</curator.version>
     <archaius.version>0.7.6</archaius.version>
-    <spring.cloud.zuul.ratelimit.version>LATEST</spring.cloud.zuul.ratelimit.version>
+    <spring.cloud.zuul.ratelimit.version>2.2.4</spring.cloud.zuul.ratelimit.version>
   </properties>
 
   <dependencyManagement>
