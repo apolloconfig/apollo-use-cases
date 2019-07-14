@@ -48,6 +48,13 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
+
+<!--    如果需要使用role限流类型需要应用中使用SpringSecurity-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.security</groupId>-->
+<!--      <artifactId>spring-security-core</artifactId>-->
+<!--      <version>5.1.4.RELEASE</version>-->
+<!--    </dependency>-->
   </dependencies>
 
 </project>
