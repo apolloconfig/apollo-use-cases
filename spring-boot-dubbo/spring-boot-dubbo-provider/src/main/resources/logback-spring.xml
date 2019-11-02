@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <springProperty scope="context" name="logName" source="dubbo.application.name" defaultValue="unknown"/>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>
+        [${logName}]%magenta([%thread]) %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %logger{36}.%M - %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>
