@@ -32,7 +32,7 @@
     <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
     <dubbo.version>2.6.2</dubbo.version>
     <dubbo.spring.boot.starter.version>0.2.0</dubbo.spring.boot.starter.version>
-    <zookeeper.version>3.4.12</zookeeper.version>
+    <zookeeper.version>3.4.14</zookeeper.version>
     <zkclient.version>0.10</zkclient.version>
     <curator.version>2.12.0</curator.version>
     <archaius.version>0.7.6</archaius.version>
