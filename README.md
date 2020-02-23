@@ -11,6 +11,7 @@
 * [dynamic-datasource](dynamic-datasource)：演示[Spring Boot默认的HikariCP DataSource](https://github.com/brettwooldridge/HikariCP)如何通过Apollo配置中心实现动态切换数据源（其它类型的DataSource也是类似的，可以依样画葫芦）
 * [dubbo](dubbo): 演示[Dubbo](https://github.com/apache/incubator-dubbo)如何通过Apollo配置中心实现中心化配置
 * [spring-boot-dubbo](spring-boot-dubbo): 演示[Dubbo Spring Boot Starter](https://github.com/apache/incubator-dubbo-spring-boot-project)如何通过Apollo配置中心实现中心化配置
+  * 该项目同时也演示了如何通过apollo管理logback的配置，详见[logback-spring.xml](https://github.com/ctripcorp/apollo-use-cases/blob/master/spring-boot-dubbo/spring-boot-dubbo-provider/src/main/resources/logback-spring.xml)
 * [netflix-archaius](netflix-archaius): 演示[Netflix Archaius](https://github.com/Netflix/archaius)如何使用Apollo配置中心作为其服务端使用
 * [sentinel](sentinel): 演示[Sentinel](https://github.com/alibaba/Sentinel)如何通过Apollo配置中心实现中心化流控规则配置
 * [properties-keeper](properties-keeper): 演示如何通过apollo管理启动前需要加载的properties文件配置
