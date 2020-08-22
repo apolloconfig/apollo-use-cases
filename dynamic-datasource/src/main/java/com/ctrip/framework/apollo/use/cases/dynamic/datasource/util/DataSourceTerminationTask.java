@@ -62,18 +62,23 @@ public class DataSourceTerminationTask implements Runnable {
   private boolean terminateHikariDataSource(HikariDataSource dataSource) {
     HikariPoolMXBean poolMXBean = dataSource.getHikariPoolMXBean();
 
-    //evict idle connections
-    poolMXBean.softEvictConnections();
+    if (poolMXBean != null) {
+      //evict idle connections
+      poolMXBean.softEvictConnections();
 
-    if (poolMXBean.getActiveConnections() > 0 && retryTimes < MAX_RETRY_TIMES) {
-      logger.warn("Data source {} still has {} active connections, will retry in {} ms.", dataSource,
-          poolMXBean.getActiveConnections(), RETRY_DELAY_IN_MILLISECONDS);
-      return false;
-    }
+      if (poolMXBean.getActiveConnections() > 0 && retryTimes < MAX_RETRY_TIMES) {
+        logger.warn("Data source {} still has {} active connections, will retry in {} ms.",
+            dataSource,
+            poolMXBean.getActiveConnections(), RETRY_DELAY_IN_MILLISECONDS);
+        return false;
+      }
 
-    if (poolMXBean.getActiveConnections() > 0) {
-      logger.warn("Retry times({}) >= {}, force closing data source {}, with {} active connections!", retryTimes,
-          MAX_RETRY_TIMES, dataSource, poolMXBean.getActiveConnections());
+      if (poolMXBean.getActiveConnections() > 0) {
+        logger.warn(
+            "Retry times({}) >= {}, force closing data source {}, with {} active connections!",
+            retryTimes,
+            MAX_RETRY_TIMES, dataSource, poolMXBean.getActiveConnections());
+      }
     }
 
     dataSource.close();
