@@ -14,46 +14,47 @@ import com.ctrip.framework.apollo.ConfigChangeListener;
 import com.ctrip.framework.apollo.ConfigService;
 import com.ctrip.framework.apollo.model.ConfigChange;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author bugcoder
  * @date 2021/3/17
  */
 @Component
-@Slf4j
 public class LoggerStartupListener extends ContextAwareBase implements LoggerContextListener, LifeCycle {
 
-	private static boolean started = false;
+	private static final org.slf4j.Logger log = LoggerFactory.getLogger(LoggerStartupListener.class);
+	private static AtomicBoolean started = new AtomicBoolean(false);
 	private static String APOLLO_SETTING_NAME = "apollo.setting.app.name";
 	private static String LOGBACK_SETTING_NAME = "appname";
 
 	@Override
 	public void start() {
-		if (started) {
-			return;
-		}
-		//从apollo中获取所有配置信息
-		Config config = ConfigService.getAppConfig();
-		String apolloValue = config.getProperty(APOLLO_SETTING_NAME, "这里设置默认值");
-		Context context = getContext();
-		//ConfigChangeListener用来监听apollo配置的变化
-		config.addChangeListener(new ConfigChangeListener() {
-			@Override
-			public void onChange(ConfigChangeEvent configChangeEvent) {
-				for (String key : configChangeEvent.changedKeys()) {
-					ConfigChange change = configChangeEvent.getChange(key);
-					reloadDefaultConfiguration(change);
+		if (started.compareAndSet(false,true)){
+			//从apollo中获取所有配置信息
+			Config config = ConfigService.getAppConfig();
+			String apolloValue = config.getProperty(APOLLO_SETTING_NAME, "这里设置默认值");
+			Context context = getContext();
+			//ConfigChangeListener用来监听apollo配置的变化
+			config.addChangeListener(new ConfigChangeListener() {
+				@Override
+				public void onChange(ConfigChangeEvent configChangeEvent) {
+					for (String key : configChangeEvent.changedKeys()) {
+						if (APOLLO_SETTING_NAME.equals(key)){
+							ConfigChange change = configChangeEvent.getChange(key);
+							reloadDefaultConfiguration(change);
+						}
+
+					}
 				}
-			}
-		});
-		context.putProperty(LOGBACK_SETTING_NAME, apolloValue);
-		log.info("the value of the logback field from apollo, apollo.setting.app.name is {}", apolloValue);
-		started = true;
+			});
+			context.putProperty(LOGBACK_SETTING_NAME, apolloValue);
+			log.info("the value of the logback field from apollo, apollo.setting.app.name is {}", apolloValue);
+		}
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class LoggerStartupListener extends ContextAwareBase implements LoggerCon
 
 	@Override
 	public boolean isStarted() {
-		return started;
+		return started.get();
 	}
 
 	@Override
