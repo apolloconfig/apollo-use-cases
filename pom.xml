@@ -22,6 +22,7 @@
     <module>properties-keeper</module>
     <module>spring-boot-agent</module>
     <module>spring-cloud-gateway</module>
+    <module>spring-mvc-logger</module>
   </modules>
 
   <properties>
