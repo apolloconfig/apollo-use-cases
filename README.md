@@ -16,6 +16,7 @@
 * [sentinel](sentinel): 演示[Sentinel](https://github.com/alibaba/Sentinel)如何通过Apollo配置中心实现中心化流控规则配置
 * [properties-keeper](properties-keeper): 演示如何通过apollo管理启动前需要加载的properties文件配置
 * [spring-boot-agent](spring-boot-agent): 演示如何通过java agent探针技术实现应用无缝接入Apollo配置中心
+* [spring-mvc-logger](spring-mvc-logger): 演示Spring/SpringMVC项目下如何通过Apollo配置中心实现动态调整日志的属性值
 
 欢迎大家把日常工作中的更多配置使用案例分享出来，提交Pull Request即可！
 
