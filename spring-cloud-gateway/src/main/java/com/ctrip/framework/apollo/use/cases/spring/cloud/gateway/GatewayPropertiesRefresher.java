@@ -40,9 +40,6 @@ public class GatewayPropertiesRefresher implements ApplicationContextAware,Appli
     @Autowired
     private GatewayProperties gatewayProperties;
 
-    @Autowired
-    private RouteDefinitionWriter routeDefinitionWriter;
-
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
@@ -96,7 +93,7 @@ public class GatewayPropertiesRefresher implements ApplicationContextAware,Appli
         }
         final boolean needClearDefaultFilters = this.checkNeedClear(changeEvent, DEFAULT_FILTER_PATTERN, this.gatewayProperties.getDefaultFilters().size());
         if (needClearDefaultFilters) {
-            this.gatewayProperties.setRoutes(new ArrayList<>());
+            this.gatewayProperties.setDefaultFilters(new ArrayList<>());
         }
         logger.info("Pre Destroy GatewayProperties finished!");
     }
