@@ -38,6 +38,7 @@
     <curator.version>2.12.0</curator.version>
     <archaius.version>0.7.6</archaius.version>
     <spring.cloud.zuul.ratelimit.version>2.2.4.RELEASE</spring.cloud.zuul.ratelimit.version>
+    <log4j2.version>2.16.0</log4j2.version>
   </properties>
 
   <dependencyManagement>
@@ -106,6 +107,28 @@
         <artifactId>curator-test</artifactId>
         <version>${curator.version}</version>
       </dependency>
+      <!-- log4j2 -->
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>${log4j2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>${log4j2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-jul</artifactId>
+        <version>${log4j2.version}</version>
+      </dependency>
+      <!-- others -->
       <dependency>
         <groupId>com.netflix.archaius</groupId>
         <artifactId>archaius-core</artifactId>
