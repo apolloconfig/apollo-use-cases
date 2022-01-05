@@ -38,7 +38,7 @@
     <curator.version>2.12.0</curator.version>
     <archaius.version>0.7.6</archaius.version>
     <spring.cloud.zuul.ratelimit.version>2.2.4.RELEASE</spring.cloud.zuul.ratelimit.version>
-    <log4j2.version>2.17.0</log4j2.version>
+    <log4j2.version>2.17.1</log4j2.version>
   </properties>
 
   <dependencyManagement>
