@@ -12,6 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.stereotype.Component;
 
+/**
+ * config the following properties in the spring-boot-dubbo-consumer app of apollo
+ * <ul>
+ *   <li>dubbo.application.name = spring-boot-dubbo-consumer</li>
+ *   <li>dubbo.registry.protocol = zookeeper</li>
+ *   <li>dubbo.registry.address = 127.0.0.1:2181</li>
+ * </ul>
+ */
 @SpringBootApplication
 public class Consumer implements CommandLineRunner {
 

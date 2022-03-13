@@ -28,7 +28,7 @@
   <properties>
     <java.version>1.8</java.version>
     <project.encoding>UTF-8</project.encoding>
-    <apollo.version>1.9.1</apollo.version>
+    <apollo.version>1.9.2</apollo.version>
     <platform.bom.version>Cairo-SR2</platform.bom.version>
     <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
     <dubbo.version>2.6.2</dubbo.version>
