@@ -31,7 +31,7 @@
     <apollo.version>1.9.2</apollo.version>
     <platform.bom.version>Cairo-SR2</platform.bom.version>
     <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
-    <dubbo.version>2.6.2</dubbo.version>
+    <dubbo.version>2.6.12</dubbo.version>
     <dubbo.spring.boot.starter.version>0.2.0</dubbo.spring.boot.starter.version>
     <zookeeper.version>3.4.14</zookeeper.version>
     <zkclient.version>0.10</zkclient.version>
